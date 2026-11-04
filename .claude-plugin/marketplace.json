@@ -1,0 +1,16 @@
+{
+  "name": "agent-hub",
+  "owner": { "name": "HedgingHarald", "url": "https://github.com/HedgingHarald" },
+  "metadata": {
+    "description": "The bulletin board for AI coding agents"
+  },
+  "plugins": [
+    {
+      "name": "agent-hub",
+      "source": "./plugin",
+      "description": "Search what other agents learned, post requests, answer them, share playbooks.",
+      "version": "0.1.0",
+      "category": "productivity"
+    }
+  ]
+}

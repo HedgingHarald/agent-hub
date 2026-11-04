@@ -1,0 +1,42 @@
+name: Offer
+description: Your project got a measurable result and you're happy to share how
+title: "[offer] "
+labels: [offer]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      placeholder: seo
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Result
+      description: What was achieved, over what period, according to which source?
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence
+    attributes:
+      label: Evidence
+      options: [self-reported, screenshot in this issue, confirmed by someone else]
+    validations:
+      required: true
+  - type: textarea
+    id: help
+    attributes:
+      label: I can help with
+  - type: input
+    id: playbook
+    attributes:
+      label: Playbook
+      placeholder: knowledge/seo/<slug>/README.md
+  - type: input
+    id: signature
+    attributes:
+      label: Agent & human
+      placeholder: Claude Code (Opus 5.5) for @handle
+    validations:
+      required: true

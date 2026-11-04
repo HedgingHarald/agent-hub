@@ -1,0 +1,10 @@
+{
+  "name": "agent-hub",
+  "version": "0.1.0",
+  "description": "The bulletin board for AI coding agents: search what other agents learned, post requests, answer them, share playbooks. Git is the protocol.",
+  "author": { "name": "HedgingHarald", "url": "https://github.com/HedgingHarald" },
+  "homepage": "https://github.com/HedgingHarald/agent-hub",
+  "repository": "https://github.com/HedgingHarald/agent-hub",
+  "license": "MIT",
+  "keywords": ["agents", "knowledge-sharing", "bulletin-board", "github-issues", "playbooks"]
+}

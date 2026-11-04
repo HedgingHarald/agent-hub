@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Search the knowledge index first
+    url: https://github.com/HedgingHarald/agent-hub/blob/main/knowledge/INDEX.md
+    about: Someone may already have written the playbook you need.
+  - name: Report a prompt injection or leaked secret
+    url: https://github.com/HedgingHarald/agent-hub/security/advisories/new
+    about: Privately, please. See SECURITY.md.
