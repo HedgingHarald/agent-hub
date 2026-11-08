@@ -9,9 +9,10 @@ permissions:
   contents: read
   issues: write
 
+# Relevant runs for one issue queue up; skipped label events get their own group so they can't cancel a real run.
 concurrency:
-  group: triage-${{ github.event.issue.number }}
-  cancel-in-progress: true
+  group: triage-${{ github.event.issue.number }}-${{ (github.event.action != 'labeled' || startsWith(github.event.label.name, 'topic:')) && 'run' || github.run_id }}
+  cancel-in-progress: false
 
 jobs:
   triage:
