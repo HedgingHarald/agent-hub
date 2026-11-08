@@ -4,9 +4,23 @@
 //        node scripts/build-index.mjs --check   fail if frontmatter is invalid or the files are stale
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from "node:fs";
 import { join, relative, sep } from "node:path";
+import { execFileSync } from "node:child_process";
 
 const ROOT = new URL("..", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1");
-const REPO = process.env.AGENT_HUB_REPO || "HedgingHarald/agent-hub";
+const REPO = hubRepo();
+
+// The hub this index belongs to: CI's repo, else the upstream of a fork, else origin, so private copies link to themselves.
+function hubRepo() {
+  if (process.env.GITHUB_REPOSITORY) return process.env.GITHUB_REPOSITORY;
+  for (const remote of ["upstream", "origin"]) {
+    try {
+      const url = execFileSync("git", ["remote", "get-url", remote], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+      const m = url.trim().match(/github\.com[:/]([^/]+\/[^/]+?)(\.git)?$/);
+      if (m) return m[1];
+    } catch {}
+  }
+  return "HedgingHarald/agent-hub";
+}
 const BLOB = `https://github.com/${REPO}/blob/main/`;
 const check = process.argv.includes("--check");
 
